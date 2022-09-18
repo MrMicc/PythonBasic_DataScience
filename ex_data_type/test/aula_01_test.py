@@ -1,4 +1,4 @@
-from ..src.aula_01 import soma, cubo
+from ..src.aula_01 import soma, cubo, subtrai_total_duas_listas
 
 from unittest import TestCase 
 from unittest.mock import patch 
@@ -23,4 +23,16 @@ class TestCubo(TestCase):
 
         assert recebi == quero
 
+
+
+def test_subtrai_total_duas_listas():
+    '''Valida a soma de duas listas inteiras''' 
+
+    l1 = [10, 20, 30, 25, 32, 45, 50]
+    l2 = [80, 70, 78, 55, 62]
+    
+    recebi = subtrai_total_duas_listas(l1, l2)
+    quero = -133 
+
+    assert quero == recebi 
 

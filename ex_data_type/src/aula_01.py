@@ -16,3 +16,21 @@ def cubo()-> int:
     
     return numero**3
 
+
+def subtrai_total_duas_listas(l1: list = [0], l2: list = [0]) -> int:
+    '''Realiza a soma de duas listas inteiras
+        
+        Parameters
+        ----------
+        l1: list 
+        l2: list
+
+        Return
+        ---------
+        int 
+    ''' 
+
+    soma_l1 = sum(l1)
+    soma_l2 = sum(l2)
+
+    return soma_l1 - soma_l2 
