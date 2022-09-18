@@ -5,7 +5,7 @@ URI = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Wine_Data
 
 def test_carrega_dados():
 
-    recebi = type(carrega_dados(uri= URI))
+    recebi = type(carrega_dados(uri= URI, sep = ';' ))
     quero = pd.DataFrame 
 
     assert quero == recebi 

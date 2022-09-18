@@ -10,9 +10,21 @@ URI = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Wine_Data
 
 
 
-def carrega_dados(uri: str='') -> pd.DataFrame:
+def carrega_dados(uri: str='', sep = ';') -> pd.DataFrame:
+    '''
+        função responsável por carregar uma base em csv a partir de uma URI e separar a partir de uma parametro 
+
+        Parameters
+        __________
+        uri: str
+        sep: str -> ';'
+
+        Return
+        ---------
+        Pandas DataFrame 
+    '''
     if uri != '': 
-        dados = pd.read_csv(uri, sep = ';') 
+        dados = pd.read_csv(uri, sep = sep) 
     else:
         return None
 
