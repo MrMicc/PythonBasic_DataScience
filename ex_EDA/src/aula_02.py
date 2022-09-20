@@ -1,4 +1,4 @@
-#import numpy as np
+import numpy as np
 import pandas as pd 
 
 #import warnings
@@ -66,6 +66,52 @@ def frequencia(data_frame: pd.DataFrame, variavel = 'quality'):
     return data_frame[variavel].value_counts()     
 
 
+
+def troca_espaco_para_underline(com_espaco: str = '') -> str:
+    '''
+        Função responsável em retornar uma string trocando o char espaço (' ') por underline ('_')
+
+        Parameters
+        ----------
+        com_espaco: str
+
+        Return
+        ----------
+        str -> Sem espaço
+    '''
+    return com_espaco.replace(' ', '_')
+
+
+
+
+def tira_espaco_de_colunas(df: pd.DataFrame) -> pd.DataFrame:
+    '''
+        Funcão responsável em retirar os espaços (' ') dos nomes das colunas de um DataFrame e substituir por underline ('_')
+
+        Parameters
+        ----------
+        df: Pandas DataFrame
+
+        Return
+        ----------
+        Pandas DataFrame
+    '''
+
+    colunas = {}
+
+    for coluna_com_espaco in df.columns:
+        coluna_sem_espaco = troca_espaco_para_underline(coluna_com_espaco)
+        colunas.update({coluna_com_espaco: coluna_sem_espaco})
+
+    df.rename(columns = colunas, inplace = True)
+    
+    return df
+    
+
+
+
+
+
 if __name__ == '__main__':
 
     dados = carrega_dados(URI)
@@ -77,3 +123,13 @@ if __name__ == '__main__':
     print(valores_unicos(data_frame = dados, variavel = 'quality'))
     print('Frequencia de que cada voto foi dado')
     print(frequencia(data_frame=dados, variavel= 'quality')) 
+    
+    print ('Ajustando o nome das colunas')
+    print(f'Antes: {dados.columns}')
+    dados = tira_espaco_de_colunas(dados)
+    print(f'\n\nDepois: {dados.columns}') 
+
+
+
+
+

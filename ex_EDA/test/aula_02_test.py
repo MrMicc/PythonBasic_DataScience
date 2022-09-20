@@ -1,6 +1,6 @@
 import pandas as pd  
 import numpy as np 
-from src.aula_02 import carrega_dados, valores_unicos, frequencia
+from src.aula_02 import carrega_dados, valores_unicos, frequencia, troca_espaco_para_underline, tira_espaco_de_colunas
 
 URI = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Wine_Dataset/winequality-red.csv'
 
@@ -31,4 +31,21 @@ def test_frequencia():
     quero = quero.sort_values(ascending=False) 
 
     assert recebi.equals(quero) 
+
+
+def test_troca_espaco_para_underline():
+    recebi = troca_espaco_para_underline('trocar por underline')
+    quero = 'trocar_por_underline'
+
+    assert recebi == quero
+
+
+def test_tira_espaco_de_colunas():
+    
+    df = pd.DataFrame(columns=['Coluna 1', 'Coluna 2', 'Coluna 3', 'Coluna 4', 'Coluna_5'])
+
+    recebi = tira_espaco_de_colunas(df)
+    quero = pd.DataFrame(columns=['Coluna_1', 'Coluna_2', 'Coluna_3', 'Coluna_4', 'Coluna_5'])
+
+    assert sorted(recebi.columns) == sorted(quero.columns)
 
