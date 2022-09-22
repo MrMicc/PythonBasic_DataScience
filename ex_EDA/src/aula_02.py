@@ -1,12 +1,14 @@
 import numpy as np
 import pandas as pd 
 
+import matplotlib.pyplot as plt 
+import seaborn as sns
+
 #import warnings
 
 #warnings.filterwarnings('ignore')
 
 URI = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Wine_Dataset/winequality-red.csv'
-
 
 
 
@@ -129,7 +131,13 @@ if __name__ == '__main__':
     dados = tira_espaco_de_colunas(dados)
     print(f'\n\nDepois: {dados.columns}') 
 
+    print('\nInformações da tabela')
+    print(dados.info())
+    print('\n\nNão existem valores nulos e as colunas são do tipo float e outcome int')
 
 
+    #y = dados.quality
+    #x = dados.drop('quality', axis=1)
 
-
+    dados.hist(bins=10, figsize=(16,12))
+    plt.show()
