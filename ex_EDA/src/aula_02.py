@@ -139,5 +139,15 @@ if __name__ == '__main__':
     #y = dados.quality
     #x = dados.drop('quality', axis=1)
 
-    dados.hist(bins=10, figsize=(16,12))
+    #dados.hist(bins=10, figsize=(16,12))
+    #plt.show()
+
+
+    print('\nMostrando a correlação em uma tabela:')
+    print(dados.corr())
+
+    #plotando a correlação em um gráfico
+    plt.figure(figsize=(16,12))
+    sns.heatmap(dados.corr(), cmap='bwr', annot=True) 
     plt.show()
+
