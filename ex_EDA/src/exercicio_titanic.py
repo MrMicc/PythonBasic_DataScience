@@ -84,3 +84,16 @@ def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> floa
         float -> média 
     '''
     return round(dados[coluna].mean(),decimal)
+
+
+def calcula_percentil_de_sobreviventes_por_genero(dados: pd.DataFrame) -> dict:
+
+    total_passageiros_por_genero = quantidade_de_passageiros_por_genero(dados)
+    
+    total_passageiros_por_genero_sobreviventes = quantidade_de_passageiros_por_genero(dados[dados['Survived'].isin([1])])
+
+
+    perecentual_sobreviventes_por_genero = {'m' :  round((total_passageiros_por_genero_sobreviventes['m']/total_passageiros_por_genero['m'])*100,2)}
+    perecentual_sobreviventes_por_genero['f'] = round((total_passageiros_por_genero_sobreviventes['f']/total_passageiros_por_genero['f'])*100,2) 
+
+    return perecentual_sobreviventes_por_genero

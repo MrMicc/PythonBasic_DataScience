@@ -1,4 +1,4 @@
-from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna
+from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna, calcula_percentil_de_sobreviventes_por_genero
 import math
 import numpy as np
 
@@ -45,3 +45,13 @@ def test_proprocao_coluna_fare():
     quero = 32.2042
 
     assert quero == recebi #math.isclose(recebi, quero) 
+
+
+def test_calcula_percentil_de_sobreviventes_por_genero():
+    recebi = calcula_percentil_de_sobreviventes_por_genero(DADOS)
+    quero = {'f': 74.20, 'm': 18.89}
+
+    assert quero == recebi 
+
+
+
