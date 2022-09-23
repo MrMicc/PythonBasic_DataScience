@@ -1,6 +1,6 @@
 from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna
-
-
+import math
+import numpy as np
 
 DADOS = carrega_data_set()
 
@@ -38,3 +38,10 @@ def test_proprocao_coluna():
     quero = 0.38
 
     assert quero == recebi
+
+
+def test_proprocao_coluna_fare():
+    recebi = proporcao_coluna(DADOS, 'Fare', 4)
+    quero = 32.2042
+
+    assert quero == recebi #math.isclose(recebi, quero) 

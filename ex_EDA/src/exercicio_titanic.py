@@ -70,7 +70,7 @@ def quantidade_de_passageiros_por_genero(dados: pd.DataFrame) -> dict:
     return quantidade_por_genero
 
 
-def proporcao_coluna(dados: pd.DataFrame, coluna: str) -> float:
+def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> float:
     '''
         Função reponsável em calcular a propoção de valores em uma determinada coluna e arredondar duas casas decimais
 
@@ -83,4 +83,4 @@ def proporcao_coluna(dados: pd.DataFrame, coluna: str) -> float:
         ---------
         float -> média 
     '''
-    return round(dados[coluna].mean(),2)
+    return round(dados[coluna].mean(),decimal)
