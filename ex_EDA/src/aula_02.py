@@ -147,7 +147,9 @@ if __name__ == '__main__':
     print(dados.corr())
 
     #plotando a correlação em um gráfico
-    plt.figure(figsize=(16,12))
+    #plt.figure(figsize=(16,12))
     sns.heatmap(dados.corr(), cmap='bwr', annot=True) 
+
+    sns.pairplot(dados)
     plt.show()
 
