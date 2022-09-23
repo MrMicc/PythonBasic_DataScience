@@ -67,7 +67,7 @@ def quantidade_de_passageiros_por_genero(dados: pd.DataFrame) -> dict:
     quantidade_por_genero['m'] = conta_qtd_valores_na_coluna(dados, 'Sex', 'male')  
     quantidade_por_genero['f'] = conta_qtd_valores_na_coluna(dados, 'Sex', 'female') 
 
-    return quantidade_por_genero
+    return retorna_dicionario_da_coluna(dados, 'Sex')
 
 
 def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> float:
@@ -86,7 +86,7 @@ def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> floa
     return round(dados[coluna].mean(),decimal)
 
 
-def realiza_calculo_porcentagem_genero(quantidade_total: dict, quantidade_final: dict) -> dict:
+def realiza_calculo_porcentagem(quantidade_total: dict, quantidade_final: dict) -> dict:
     '''
         Função especializada em realizar calculo de percentil a partir de um dicionário e retornar um dicionário com as mesmas chaves e seus valores em
         percentil
@@ -123,6 +123,31 @@ def calcula_percentil_de_sobreviventes_por_genero(dados: pd.DataFrame) -> dict:
     total_passageiros_por_genero_sobreviventes = quantidade_de_passageiros_por_genero(dados[dados['Survived'].isin([1])])
 
 
-    return realiza_calculo_porcentagem_genero(total_passageiros_por_genero, total_passageiros_por_genero_sobreviventes)
+    return realiza_calculo_porcentagem(total_passageiros_por_genero, total_passageiros_por_genero_sobreviventes)
+
+def retorna_dicionario_da_coluna(dados: pd.DataFrame, coluna: str) ->dict:
+    dicionario = {}
+    print(dados[coluna].unique())
+
+    for key in dados[coluna].unique():
+        dicionario[key] = conta_qtd_valores_na_coluna(dados,coluna,key)
+    
+    return dicionario 
+
+
+
+def calcula_percentil_sobreviventes_por_classe(dados: pd.DataFrame) -> dict:
+    
+    dict_classes_total = retorna_dicionario_da_coluna(dados, 'Pclass')
+    
+    dict_classes_sobreviventes = retorna_dicionario_da_coluna(dados[dados['Survived'].isin([1])], 'Pclass')
+
+    return realiza_calculo_porcentagem(dict_classes_total, dict_classes_sobreviventes)
+
+
+
+
+
+
 
 

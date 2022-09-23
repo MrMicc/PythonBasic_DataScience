@@ -1,4 +1,4 @@
-from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna, calcula_percentil_de_sobreviventes_por_genero
+from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna, calcula_percentil_de_sobreviventes_por_genero, calcula_percentil_sobreviventes_por_classe 
 import math
 import numpy as np
 
@@ -23,7 +23,7 @@ def test_quantidade_de_passageiros_por_genero():
         Teste de quantidade de passageiro por genero
     '''
     recebi = quantidade_de_passageiros_por_genero(DADOS)
-    quero = {'f':314, 'm':577}
+    quero = {'female':314, 'male':577}
     
     print(recebi)
     assert quero == recebi
@@ -49,9 +49,16 @@ def test_proprocao_coluna_fare():
 
 def test_calcula_percentil_de_sobreviventes_por_genero():
     recebi = calcula_percentil_de_sobreviventes_por_genero(DADOS)
-    quero = {'f': 74.20, 'm': 18.89}
+    quero = {'female': 74.20, 'male': 18.89}
 
     assert quero == recebi 
 
+
+def test_calcula_percentil_sobreviventes_por_classe():
+    recebi = calcula_percentil_sobreviventes_por_classe(DADOS)
+    quero =  {1: 62.96, 2: 47.28, 3: 24.24} 
+
+
+    assert quero == recebi
 
 
