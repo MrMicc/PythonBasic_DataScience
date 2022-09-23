@@ -86,14 +86,43 @@ def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> floa
     return round(dados[coluna].mean(),decimal)
 
 
-def calcula_percentil_de_sobreviventes_por_genero(dados: pd.DataFrame) -> dict:
+def realiza_calculo_porcentagem_genero(quantidade_total: dict, quantidade_final: dict) -> dict:
+    '''
+        Função especializada em realizar calculo de percentil a partir de um dicionário e retornar um dicionário com as mesmas chaves e seus valores em
+        percentil
 
+        Parameters
+        -----------
+        quantidade_total: dict
+        quantidade_final: dict
+
+        Returns
+        -----------
+        dict -> Contendo as chave passadas e seus valores em percentil 
+    '''
+    total = {}
+   
+    for key, value in quantidade_total.items():
+        total[key] = round((quantidade_final[key]/value)*100,2)
+
+    return total
+
+def calcula_percentil_de_sobreviventes_por_genero(dados: pd.DataFrame) -> dict:
+    '''
+        Função responsável em retornar o percentil de sobreviventes por genero e retornar através de um dicionário
+
+        Parameters
+        -----------
+        dados: pd.DataFrame
+
+        Return
+        dict -> contendo dois generos e seus valores em % com duas casas decimais 
+    '''
     total_passageiros_por_genero = quantidade_de_passageiros_por_genero(dados)
     
     total_passageiros_por_genero_sobreviventes = quantidade_de_passageiros_por_genero(dados[dados['Survived'].isin([1])])
 
 
-    perecentual_sobreviventes_por_genero = {'m' :  round((total_passageiros_por_genero_sobreviventes['m']/total_passageiros_por_genero['m'])*100,2)}
-    perecentual_sobreviventes_por_genero['f'] = round((total_passageiros_por_genero_sobreviventes['f']/total_passageiros_por_genero['f'])*100,2) 
+    return realiza_calculo_porcentagem_genero(total_passageiros_por_genero, total_passageiros_por_genero_sobreviventes)
 
-    return perecentual_sobreviventes_por_genero
+
