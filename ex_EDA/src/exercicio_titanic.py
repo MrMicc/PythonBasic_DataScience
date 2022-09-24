@@ -85,6 +85,10 @@ def proporcao_coluna(dados: pd.DataFrame, coluna: str, decimal: int = 2) -> floa
     '''
     return round(dados[coluna].mean(),decimal)
 
+def retorna_quantil(dados: pd.DataFrame, coluna: str, quantil: float = 0.5) -> float:
+
+    return dados[coluna].quantile(0.5)
+
 
 def realiza_calculo_porcentagem(quantidade_total: dict, quantidade_final: dict) -> dict:
     '''
@@ -144,7 +148,13 @@ def calcula_percentil_sobreviventes_por_classe(dados: pd.DataFrame) -> dict:
 
     return realiza_calculo_porcentagem(dict_classes_total, dict_classes_sobreviventes)
 
+def calcula_percentil_sobreviventes_por_idade(dados: pd.DataFrame) -> dict:
+    
+    dict_maior_menor_idade = {} 
+    dict_maior_menor_idade['Menor idade'] = round(np.mean(dados['Survived'][dados['Age'] < 18])*100,2)
+    dict_maior_menor_idade['Maior idade'] = round(np.mean(dados['Survived'][dados['Age'] >= 18])*100,2) 
 
+    return dict_maior_menor_idade
 
 
 

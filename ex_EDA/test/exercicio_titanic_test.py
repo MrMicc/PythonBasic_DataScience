@@ -1,4 +1,4 @@
-from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna, calcula_percentil_de_sobreviventes_por_genero, calcula_percentil_sobreviventes_por_classe 
+from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna,calcula_percentil_de_sobreviventes_por_genero, calcula_percentil_sobreviventes_por_classe, calcula_percentil_sobreviventes_por_idade,  retorna_quantil
 import math
 import numpy as np
 
@@ -41,8 +41,8 @@ def test_proprocao_coluna():
 
 
 def test_proprocao_coluna_fare():
-    recebi = proporcao_coluna(DADOS, 'Fare', 4)
-    quero = 32.2042
+    recebi = retorna_quantil(DADOS, 'Fare') 
+    quero = 14.4542 
 
     assert quero == recebi #math.isclose(recebi, quero) 
 
@@ -61,4 +61,12 @@ def test_calcula_percentil_sobreviventes_por_classe():
 
     assert quero == recebi
 
+
+
+
+def test_caclula_percentil_sobreviventes_por_idade():
+    recebi = calcula_percentil_sobreviventes_por_idade(DADOS)
+    quero = {'Maior idade': 38.10, 'Menor idade': 53.98}
+
+    assert quero == recebi
 
