@@ -87,3 +87,24 @@ def test_retorna_tarifas():
     quero = [512.3292, 512.3292, 512.3292, 263.0, 263.0]
 
     assert quero == recebi
+
+
+
+
+
+def test_mediana_idade_passageiros():
+    recebi = mediana_idade_passageiros(DADOS)
+    quero = 28
+
+    assert quero == recebi
+
+
+
+
+
+
+
+
+
+
+

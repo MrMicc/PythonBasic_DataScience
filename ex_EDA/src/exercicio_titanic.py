@@ -176,3 +176,11 @@ def retorna_tarifas(dados: pd.DataFrame, crescente:bool = True, quantidade:int =
 
 
 
+
+
+def mediana_idade_passageiros(dados: pd.DataFrame) -> int:
+
+    df_idade = dados[dados['Age']>=0]
+
+    return round(df_idade['Age'].median())
+
