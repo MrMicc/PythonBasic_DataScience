@@ -1,4 +1,4 @@
-from src.exercicio_titanic import carrega_data_set, quantidade_de_dados_nulos, quantidade_de_passageiros_por_genero, proporcao_coluna,calcula_percentil_de_sobreviventes_por_genero, calcula_percentil_sobreviventes_por_classe, calcula_percentil_sobreviventes_por_idade,  retorna_quantil
+from src.exercicio_titanic import * 
 import math
 import numpy as np
 
@@ -69,4 +69,19 @@ def test_caclula_percentil_sobreviventes_por_idade():
     quero = {'Maior idade': 38.10, 'Menor idade': 53.98}
 
     assert quero == recebi
+
+
+
+def test_quantidade_de_sobreviventes_por_emarque():
+    recebi = quantidade_de_sobrevivente_por_embarque(DADOS)
+    quero = 217 
+
+    assert quero == recebi['S']
+
+
+
+
+
+
+
 

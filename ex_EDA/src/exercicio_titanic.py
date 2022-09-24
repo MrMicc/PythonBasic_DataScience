@@ -157,6 +157,14 @@ def calcula_percentil_sobreviventes_por_idade(dados: pd.DataFrame) -> dict:
     return dict_maior_menor_idade
 
 
+def quantidade_de_sobrevivente_por_embarque(dados: pd.DataFrame) -> dict:
+
+    dados_sobreviventes =  dados[dados['Survived'] == 1]
+
+    embarque = {}
+    embarque = dados_sobreviventes['Embarked'].value_counts()
+
+    return embarque.to_dict()
 
 
 
