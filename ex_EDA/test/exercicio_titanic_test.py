@@ -82,6 +82,8 @@ def test_quantidade_de_sobreviventes_por_emarque():
 
 
 
+def test_retorna_tarifas():
+    recebi = retorna_tarifas(DADOS, crescente = False, quantidade = 5)
+    quero = [512.3292, 512.3292, 512.3292, 263.0, 263.0]
 
-
-
+    assert quero == recebi

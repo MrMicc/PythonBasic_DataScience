@@ -168,4 +168,11 @@ def quantidade_de_sobrevivente_por_embarque(dados: pd.DataFrame) -> dict:
 
 
 
+def retorna_tarifas(dados: pd.DataFrame, crescente:bool = True, quantidade:int = 0) -> list:
+    if (quantidade <= 0):
+        return list(dados['Fare'].sort_values(ascending= crescente))
+    else: 
+        return list(dados['Fare'].sort_values(ascending = crescente))[:quantidade]
+
+
 
