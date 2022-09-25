@@ -108,6 +108,12 @@ def test_recupera_quantidade_nomes_unicos():
     assert quero == recebi
 
 
+def test_recupera_quantidade_de_irmao_ou_esposa():
+    recebi = recupera_quantidade_de_irmao_ou_esposa(DADOS)
+    
+    quero = {0: 608, 1:209, 2:28, 3:16, 4:18, 5:5, 8:7}
+
+    assert quero == recebi
 
 
 

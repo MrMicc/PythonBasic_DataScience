@@ -188,3 +188,12 @@ def mediana_idade_passageiros(dados: pd.DataFrame) -> int:
 
 def recupera_quantidade_nomes_unicos(dados: pd.DataFrame) -> int:
     return len(dados['Name'].unique())
+
+
+
+def recupera_quantidade_de_irmao_ou_esposa(dados: pd.DataFrame) -> dict:
+
+    dict_tem_irmao_esposa = retorna_dicionario_da_coluna(dados, 'SibSp')
+
+    return (dict_tem_irmao_esposa)
+
