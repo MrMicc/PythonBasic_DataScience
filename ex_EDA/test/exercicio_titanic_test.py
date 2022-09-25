@@ -99,6 +99,14 @@ def test_mediana_idade_passageiros():
     assert quero == recebi
 
 
+def test_recupera_quantidade_nomes_unicos():
+
+    recebi = recupera_quantidade_nomes_unicos(DADOS)
+
+    quero = 891
+
+    assert quero == recebi
+
 
 
 

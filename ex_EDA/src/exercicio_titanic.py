@@ -184,3 +184,7 @@ def mediana_idade_passageiros(dados: pd.DataFrame) -> int:
 
     return round(df_idade['Age'].median())
 
+
+
+def recupera_quantidade_nomes_unicos(dados: pd.DataFrame) -> int:
+    return len(dados['Name'].unique())
