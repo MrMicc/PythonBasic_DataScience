@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def array_impares(quantidade: int = 1) -> int:
+def array_impares(quantidade: int = 1) -> np.ndarray:
 
     num = 1 
     lista = []
