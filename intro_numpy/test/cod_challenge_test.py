@@ -10,3 +10,11 @@ def test_array_impares():
 
     assert all(recebi == quero)
 
+#exercicio 2
+def test_dimensao():
+    lista = [2, 5, 8, 6, 4, 12, 16, 15]
+    recebi = array_dimensao(lista)
+
+    quero = 1
+
+    assert recebi == quero 
