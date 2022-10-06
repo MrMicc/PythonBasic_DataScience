@@ -31,3 +31,14 @@ def test_array_aleatorio():
                      27.28571429, 27.57142857, 27.85714286, 28.14285714, 28.42857143, 28.71428571, 29., 29.28571429, 29.57142857, 29.85714286, 30.14285714,
                      30.42857143, 30.71428571, 31.])
     assert all(recebi == quero)
+
+
+def test_array_ordena_e_deleta():
+
+    lista = [10, 2, 7, 8, 3, 22, 54, 12, 13, 46, 23, 25, 41]
+
+    recebi = array_ordena_e_deleta(lista, deleta_posicao=4)
+    quero = np.array([2,  3,  7,  8, 12, 13, 22, 23, 25, 41, 46, 54])
+    print(recebi)
+
+    assert all(recebi == quero) 

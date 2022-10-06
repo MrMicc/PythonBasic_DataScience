@@ -33,4 +33,9 @@ def array_aleatorio(comeca_em: int = 1, termina_em: int = 10, qtd_intervalos = 5
     for x in arr: 
         arr_arrendondado = np.append(arr_arrendondado, round(x, qtd_casas_decimais_nos_intervalos))
 
-    return arr_arrendondado 
+    return arr_arrendondado
+
+
+def array_ordena_e_deleta(lista: list, deleta_posicao: int) -> np.ndarray:
+
+    return np.delete(np.sort(lista), deleta_posicao)
