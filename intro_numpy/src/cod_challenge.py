@@ -39,3 +39,9 @@ def array_aleatorio(comeca_em: int = 1, termina_em: int = 10, qtd_intervalos = 5
 def array_ordena_e_deleta(lista: list, deleta_posicao: int) -> np.ndarray:
 
     return np.delete(np.sort(lista), deleta_posicao)
+
+
+
+def refazendo_array(lista, eixo_x, eixo_y):
+
+    return np.reshape(lista,(eixo_x, eixo_y))

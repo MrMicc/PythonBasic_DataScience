@@ -42,3 +42,20 @@ def test_array_ordena_e_deleta():
     print(recebi)
 
     assert all(recebi == quero) 
+
+
+def test_refazendo_array():
+    lista = [10, 2, 7, 8, 3, 22, 54, 12, 13, 46, 23, 25, 41]
+    
+    lista.append(53)
+
+    recebi = refazendo_array(lista, eixo_x=2, eixo_y=7)
+    
+    quero = np.array([[10, 2, 7, 8, 3, 22, 54],[12, 13, 46, 23, 25, 41, 53]])
+
+    print (recebi)
+
+    print('------')
+    print(quero)
+
+    assert np.alltrue(recebi == quero)
