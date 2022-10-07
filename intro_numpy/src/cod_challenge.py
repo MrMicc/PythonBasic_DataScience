@@ -14,9 +14,6 @@ def array_impares(quantidade: int = 1) -> np.ndarray:
 
     return np.array(lista)
 
-if __name__ == '__main__':
-    array_impares(4)
-
 
 #exercicio 2
 def array_dimensao(lista: list= ['1']) -> int:
@@ -45,3 +42,25 @@ def array_ordena_e_deleta(lista: list, deleta_posicao: int) -> np.ndarray:
 def refazendo_array(lista, eixo_x, eixo_y):
 
     return np.reshape(lista,(eixo_x, eixo_y))
+
+#exercicio 5a
+
+def criar_array(quantidade:int = 1, qtd_coluna = 1, qtd_linha = 1) ->  np.ndarray:
+    arr = np.arange(start=0, stop= quantidade, step = 1)
+
+    arr = arr.reshape(qtd_linha, qtd_coluna)
+    
+    return arr
+
+
+
+
+if __name__ == '__main__':
+    arr = criar_array(quantidade=25, qtd_linha=5, qtd_coluna=5)
+    print(arr)
+
+    print('------next----')
+    print(arr[:2,3:])
+
+    print('-----next-----')
+    print(arr[1::2, ::2])

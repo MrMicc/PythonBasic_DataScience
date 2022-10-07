@@ -59,3 +59,16 @@ def test_refazendo_array():
     print(quero)
 
     assert np.alltrue(recebi == quero)
+
+
+
+def test_criar_array():
+
+    recebi = criar_array(quantidade = 25, qtd_coluna = 5, qtd_linha = 5)
+    lista =[[0,1,2,3,4], [5,7,8,9], [10,12,13,14], [15,17,18,19], [20,22,23,24,24]]
+    quero = np.array(lista, dtype = np.ndarray)
+
+    print(quero) 
+    print ('--------')
+    print(recebi)
+    assert (recebi == quero).all
