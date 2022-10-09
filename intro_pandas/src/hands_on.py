@@ -20,3 +20,6 @@ if __name__ == '__main__':
     df = carrega_dados(uri)
 
     print(retorna_formato(df))
+
+
+    print(df.info())
