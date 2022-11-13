@@ -24,9 +24,18 @@ def test_retorna_formato():
 
 # Exercicio HandsOn2 - 1
 def test_tx_crime_no_indice():
-    df = carrega_dados(URI)
     recebi = tx_crime_no_indice(URI, index=9)
 
     quero = 55.30
 
-    assert recebi[0] == quero
+    assert recebi == quero
+
+
+# Exerccio Handon2 -2
+def test_physicians_dado():
+
+    recebi = physicians_dado(uri=URI, index=-1)
+
+    quero = 140
+
+    assert recebi == quero
