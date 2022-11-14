@@ -1,9 +1,10 @@
 import pandas as pd
+from pandas.core.api import Series
 from pandas.core.frame import Dtype
 
 
-def carrega_dados(uri: str, sep=',') -> pd.Series:
-    return pd.read_csv(uri, sep=sep)
+def carrega_dados(uri: str) -> pd.DataFrame:
+    return pd.read_csv(filepath_or_buffer=uri)  # type: ignore
 
 
 def retorna_formato(ds: pd.Series):
@@ -15,13 +16,13 @@ def tx_crime_no_indice(uri: str, index: int) -> float:
 
     df = carrega_dados(uri=uri)
 
-    return (df.loc[index, ['crime_rate']])[0]
+    return (df.crime_rate.iloc[index])
 
 
-def physicians_dado(uri: str, index: int) -> int:
+def physicians_dado(uri: str, index: int = 0) -> int:
     df = carrega_dados(uri)
 
-    return (df['physicians'].iloc[index])
+    return (df.physicians.iloc[index])
 
 
 if __name__ == '__main__':

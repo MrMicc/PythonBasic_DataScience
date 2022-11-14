@@ -7,7 +7,7 @@ URI = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Standard_
 
 def test_carrega_dados():
 
-    recebi = carrega_dados(URI, ',')
+    recebi = carrega_dados(URI)
     quero = pd.read_csv(URI)
 
     assert (recebi == quero).all
