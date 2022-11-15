@@ -1,3 +1,4 @@
+from re import I
 import pandas as pd
 from src.hands_on import *
 
@@ -39,3 +40,17 @@ def test_physicians_dado():
     quero = 140
 
     assert recebi == quero
+
+
+# Exercicio Handon2 - 3
+def test_new_label():
+
+    recebi = new_label(
+        uri=URI, index=[1, 3, 5, 7, 9, 13], columns=['land_area', 'work_force', 'income', 'region', 'crime_rate'])
+
+    df = carrega_dados(URI)
+
+    quero = df.loc[[1, 3, 5, 7, 9, 13], ['land_area',
+                                         'work_force', 'income', 'region', 'crime_rate']]
+
+    assert (recebi == quero).all

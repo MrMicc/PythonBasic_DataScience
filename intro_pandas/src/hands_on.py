@@ -1,3 +1,4 @@
+from urllib.parse import _NetlocResultMixinBase
 import pandas as pd
 from pandas.core.api import Series
 from pandas.core.frame import Dtype
@@ -7,7 +8,7 @@ def carrega_dados(uri: str) -> pd.DataFrame:
     return pd.read_csv(filepath_or_buffer=uri)  # type: ignore
 
 
-def retorna_formato(ds: pd.Series):
+def retorna_formato(ds: pd.DataFrame):
 
     return ds.shape
 
@@ -23,6 +24,12 @@ def physicians_dado(uri: str, index: int = 0) -> int:
     df = carrega_dados(uri)
 
     return (df.physicians.iloc[index])
+
+
+def new_label(uri: str, index, columns):
+    df = carrega_dados(uri)
+
+    return df.loc[index, columns]
 
 
 if __name__ == '__main__':
