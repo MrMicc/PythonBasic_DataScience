@@ -54,3 +54,13 @@ def test_new_label():
                                          'work_force', 'income', 'region', 'crime_rate']]
 
     assert (recebi == quero).all
+
+
+# Exerccio handson2 - 4
+def test_quantidade_de_regiao_igual_a():
+
+    recebi = quantidade_de_regiao_igual_a(uri=URI, valor=2)
+
+    quero = 25
+
+    assert recebi == quero

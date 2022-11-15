@@ -32,6 +32,14 @@ def new_label(uri: str, index, columns):
     return df.loc[index, columns]
 
 
+def quantidade_de_regiao_igual_a(uri: str, valor: int = 2) -> int:
+
+    df = carrega_dados(uri)
+
+    # retorna total de regiões iguais ao valor
+    return len(df[df.region == valor].index)  # type: ignore
+
+
 if __name__ == '__main__':
 
     uri = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Standard_Metropolitan_Areas_Data-data.csv'
