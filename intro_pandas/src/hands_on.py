@@ -39,3 +39,6 @@ if __name__ == '__main__':
     df = carrega_dados(uri)
 
     print(df.info())
+
+    print(new_label(uri, [1, 3, 5, 7, 9, 13], [
+          'land_area', 'work_force', 'income', 'region', 'crime_rate']))
