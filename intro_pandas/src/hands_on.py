@@ -40,13 +40,18 @@ def quantidade_de_regiao_igual_a(uri: str, valor: int = 2) -> int:
     return len(df[df.region == valor].index)  # type: ignore
 
 
+def pegar_coluna_ordenado(uri: str, quantidade: int, coluna: str, ascending: bool) -> pd.DataFrame:
+    df = carrega_dados(uri)
+
+    return df.sort_values(by=coluna, ascending=ascending)[:quantidade]
+
+
 if __name__ == '__main__':
 
     uri = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/Standard_Metropolitan_Areas_Data-data.csv'
 
     df = carrega_dados(uri)
 
-    print(df.info())
+    print(df.region.value_counts())
 
-    print(new_label(uri, [1, 3, 5, 7, 9, 13], [
-          'land_area', 'work_force', 'income', 'region', 'crime_rate']))
+    print(df.region.unique())

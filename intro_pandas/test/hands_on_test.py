@@ -64,3 +64,14 @@ def test_quantidade_de_regiao_igual_a():
     quero = 25
 
     assert recebi == quero
+
+
+# Exercicio handson3 -1
+def test_crime_rate_ordenado_descending():
+
+    recebi = pegar_coluna_ordenado(
+        uri=URI, quantidade=5, coluna='crime_rate', ascending=False)
+
+    quero = 4
+
+    assert recebi.region.iloc[0] == quero
