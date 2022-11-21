@@ -55,3 +55,27 @@ if __name__ == '__main__':
     print(df.region.value_counts())
 
     print(df.region.unique())
+
+    uri = 'https://raw.githubusercontent.com/dphi-official/Datasets/master/titanic_data.csv'
+    df = carrega_dados(uri)
+
+    # Exercicio Titanic handsOn 1
+    print('Colunas com NaN:')
+    print(df.isnull().sum())
+
+    print('#######')
+    age_mean_before = df.Age.mean()
+    print(f'age_mean_before = {age_mean_before}')
+
+    df.Age.fillna(age_mean_before, inplace=True)
+
+    print('#########')
+    print(df.isnull().sum())
+
+    # Exercicio Titcanic handOn 2
+    print('##########')
+    print(f'age_mean_after = {df.Age.mean()}')
+
+    # Exercicio Titanic handsOn 3
+    print('#######')
+    print(df.Embarked.value_counts())
